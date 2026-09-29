@@ -1,0 +1,10 @@
+body {
+  font-family: 'Prompt', sans-serif;
+}
+
+/* เอฟเฟกต์ Glassmorphism */
+.glass {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}

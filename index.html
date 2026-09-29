@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tasty App - Graph & Tree Interactive Web App</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Font Awesome Icons CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- ไฟล์ CSS ของเรา -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-gradient-to-br from-slate-900 via-indigo-950 to-slate-900 min-h-screen text-slate-100 p-4 md:p-8">
+
+  <div class="max-w-5xl mx-auto">
+    <!-- Header -->
+    <header class="glass rounded-2xl p-6 mb-8 border border-slate-700/50 shadow-2xl flex flex-col md:flex-row justify-between items-center gap-4">
+      <div class="flex items-center gap-4">
+        <div class="w-14 h-14 bg-emerald-500/20 text-emerald-400 rounded-2xl flex items-center justify-center text-3xl border border-emerald-500/30">
+          <i class="fa-solid fa-utensils"></i>
+        </div>
+        <div>
+          <h1 class="text-2xl font-bold bg-gradient-to-r from-emerald-400 to-teal-200 bg-clip-text text-transparent">Tasty App Discrete Math</h1>
+          <p class="text-sm text-slate-400">Interactive Web Application (Graph Theory & Tree Structure)</p>
+        </div>
+      </div>
+      <div class="flex gap-2">
+        <span class="px-3 py-1 bg-indigo-500/20 text-indigo-300 border border-indigo-500/30 rounded-full text-xs font-semibold">
+          <i class="fa-solid fa-diagram-project mr-1"></i> Graph & Tree
+        </span>
+        <span class="px-3 py-1 bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 rounded-full text-xs font-semibold">
+          <i class="fa-solid fa-star mr-1"></i> 25 Points
+        </span>
+      </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="glass rounded-3xl p-6 md:p-8 border border-slate-700/50 shadow-2xl min-h-[500px]">
+
+      <!-- SCREEN 1: TREE STRUCTURE -->
+      <section id="screen1" class="space-y-6">
+        <div class="border-b border-slate-700 pb-4">
+          <h2 class="text-xl font-semibold text-emerald-400 flex items-center gap-2">
+            <i class="fa-solid fa-sitemap"></i> หน้า 1: เลือกหมวดหมู่อาหาร (Tree Structure 3 Levels)
+          </h2>
+          <p class="text-slate-400 text-sm mt-1">สำรวจข้อมูลลำดับชั้น: Root &rarr; Parent &rarr; Child &rarr; Leaf</p>
+        </div>
+
+        <div class="grid grid-cols-1 gap-4">
+          <div class="bg-slate-800/80 p-5 rounded-2xl border border-slate-700 hover:border-emerald-500/50 transition">
+            <div class="flex items-center gap-3 text-emerald-400 font-bold mb-3">
+              <i class="fa-solid fa-folder-tree text-lg"></i>
+              <span>[Root Level 0] เมนูอาหารทั้งหมด</span>
+            </div>
+            
+            <div class="ml-4 pl-4 border-l-2 border-slate-600 space-y-4">
+              <div class="bg-slate-900/60 p-4 rounded-xl border border-slate-700">
+                <div class="flex items-center gap-2 text-indigo-300 font-semibold mb-2">
+                  <i class="fa-solid fa-bowl-food"></i>
+                  <span>[Parent Level 1] หมวดอาหารคาว</span>
+                </div>
+
+                <div class="ml-4 pl-4 border-l-2 border-indigo-500/40 space-y-3">
+                  <div class="text-teal-300 font-medium text-sm flex items-center gap-2">
+                    <i class="fa-solid fa-flag"></i> [Child Level 2] อาหารไทยยอดนิยม
+                  </div>
+
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-3 pt-1">
+                    
+                    <div class="bg-slate-800/90 p-4 rounded-xl border border-emerald-500/30 flex justify-between items-center hover:bg-slate-800 transition">
+                      <div>
+                        <div class="text-xs text-emerald-400 font-semibold mb-1"><i class="fa-solid fa-leaf"></i> [Leaf Node]</div>
+                        <div class="font-bold text-white">ผัดไทยกุ้งสด</div>
+                        <div class="text-xs text-slate-400">ราคา 80 บาท</div>
+                      </div>
+                      <button onclick="selectMenu('ผัดไทยกุ้งสด')" class="px-4 py-2 bg-emerald-500 hover:bg-emerald-600 text-white rounded-xl text-sm font-semibold transition shadow-lg shadow-emerald-500/20 flex items-center gap-2">
+                        เลือกเมนู <i class="fa-solid fa-chevron-right text-xs"></i>
+                      </button>
+                    </div>
+
+                    <div class="bg-slate-800/90 p-4 rounded-xl border border-emerald-500/30 flex justify-between items-center hover:bg-slate-800 transition">
+                      <div>
+                        <div class="text-xs text-emerald-400 font-semibold mb-1"><i class="fa-solid fa-leaf"></i> [Leaf Node]</div>
+                        <div class="font-bold text-white">ข้าวกะเพราไก่</div>
+                        <div class="text-xs text-slate-400">ราคา 60 บาท</div>
+                      </div>
+                      <button onclick="selectMenu('ข้าวกะเพราไก่')" class="px-4 py-2 bg-emerald-500 hover:bg-emerald-600 text-white rounded-xl text-sm font-semibold transition shadow-lg shadow-emerald-500/20 flex items-center gap-2">
+                        เลือกเมนู <i class="fa-solid fa-chevron-right text-xs"></i>
+                      </button>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SCREEN 2: GRAPH STRUCTURE -->
+      <section id="screen2" class="hidden space-y-6">
+        <div class="border-b border-slate-700 pb-4">
+          <h2 class="text-xl font-semibold text-indigo-400 flex items-center gap-2">
+            <i class="fa-solid fa-circle-nodes"></i> หน้า 2: วิเคราะห์โครงสร้างกราฟ (Graph Theory & Neighbors)
+          </h2>
+          <p class="text-slate-400 text-sm mt-1">แสดง Vertex, Edge (Adjacency List) และ Path ความสัมพันธ์ในระบบ</p>
+        </div>
+
+        <div class="bg-slate-800/80 p-6 rounded-2xl border border-slate-700 space-y-5">
+          <div class="flex items-center justify-between bg-indigo-950/50 p-4 rounded-xl border border-indigo-500/30">
+            <div>
+              <span class="text-xs text-indigo-400 font-bold uppercase tracking-wider">Selected Item</span>
+              <h3 id="vertex-main" class="text-2xl font-bold text-white mt-1">-</h3>
+            </div>
+            <span class="px-3 py-1 bg-indigo-500/20 text-indigo-300 border border-indigo-500/30 rounded-full text-xs">
+              Primary Vertex
+            </span>
+          </div>
+
+          <div>
+            <h4 class="text-sm font-semibold text-slate-300 mb-3 flex items-center gap-2">
+              <i class="fa-solid fa-link text-emerald-400"></i> โหนดและวัตถุดิบที่เชื่อมโยง (Adjacent Edges):
+            </h4>
+            <div id="ingredient-list" class="grid grid-cols-2 md:grid-cols-4 gap-3"></div>
+          </div>
+
+          <div class="bg-slate-900/80 p-4 rounded-xl border border-slate-700">
+            <div class="text-xs text-slate-400 mb-1 font-semibold">Graph Path Traversal:</div>
+            <div id="path-display" class="font-mono text-emerald-400 text-sm font-semibold flex items-center gap-2">-</div>
+          </div>
+        </div>
+
+        <div class="flex gap-3">
+          <button onclick="goToPage('screen1')" class="px-5 py-2.5 bg-slate-700 hover:bg-slate-600 text-slate-200 rounded-xl font-semibold text-sm transition">
+            <i class="fa-solid fa-arrow-left mr-1"></i> ย้อนกลับ
+          </button>
+          <button onclick="goToPage('screen3')" class="px-5 py-2.5 bg-emerald-500 hover:bg-emerald-600 text-white rounded-xl font-semibold text-sm transition shadow-lg shadow-emerald-500/20">
+            ยืนยันเลือกรายการนี้ <i class="fa-solid fa-arrow-right ml-1"></i>
+          </button>
+        </div>
+      </section>
+
+      <!-- SCREEN 3: SUMMARY -->
+      <section id="screen3" class="hidden space-y-6">
+        <div class="border-b border-slate-700 pb-4">
+          <h2 class="text-xl font-semibold text-teal-400 flex items-center gap-2">
+            <i class="fa-solid fa-clipboard-check"></i> หน้า 3: รายละเอียดคำสั่งซื้อ
+          </h2>
+          <p class="text-slate-400 text-sm mt-1">สรุปการเชื่อมโยงข้อมูลก่อนออกใบเสร็จ</p>
+        </div>
+
+        <div class="bg-slate-800/80 p-6 rounded-2xl border border-slate-700 space-y-4">
+          <div class="flex justify-between items-center border-b border-slate-700 pb-4">
+            <span class="text-slate-400">รายการที่เลือก:</span>
+            <span id="confirm-name" class="text-lg font-bold text-white">-</span>
+          </div>
+          <div class="flex justify-between items-center border-b border-slate-700 pb-4">
+            <span class="text-slate-400">ราคารวม (Total Weight):</span>
+            <span class="text-lg font-bold text-emerald-400">80 บาท</span>
+          </div>
+          <div class="flex justify-between items-center">
+            <span class="text-slate-400">สถานะข้อมูล:</span>
+            <span class="text-xs bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 px-3 py-1 rounded-full">พร้อมดำเนินการ</span>
+          </div>
+        </div>
+
+        <div class="flex gap-3">
+          <button onclick="goToPage('screen2')" class="px-5 py-2.5 bg-slate-700 hover:bg-slate-600 text-slate-200 rounded-xl font-semibold text-sm transition">
+            <i class="fa-solid fa-arrow-left mr-1"></i> ย้อนกลับ
+          </button>
+          <button onclick="goToPage('screen4')" class="px-5 py-2.5 bg-indigo-500 hover:bg-indigo-600 text-white rounded-xl font-semibold text-sm transition shadow-lg shadow-indigo-500/20">
+            ออกใบเสร็จ e-Receipt <i class="fa-solid fa-receipt ml-1"></i>
+          </button>
+        </div>
+      </section>
+
+      <!-- SCREEN 4: E-RECEIPT -->
+      <section id="screen4" class="hidden space-y-6">
+        <div class="border-b border-slate-700 pb-4 text-center">
+          <div class="w-12 h-12 bg-emerald-500/20 text-emerald-400 rounded-full flex items-center justify-center text-xl mx-auto mb-2 border border-emerald-500/30">
+            <i class="fa-solid fa-check"></i>
+          </div>
+          <h2 class="text-xl font-semibold text-emerald-400">หน้า 4: ใบเสร็จ e-Receipt (Success)</h2>
+          <p class="text-slate-400 text-sm">การประมวลผล Graph & Tree เสร็จสมบูรณ์</p>
+        </div>
+
+        <div class="bg-slate-800/90 p-6 rounded-2xl border border-emerald-500/30 max-w-md mx-auto space-y-4 shadow-2xl">
+          <div class="text-center pb-3 border-b border-slate-700">
+            <div class="text-xs text-slate-400">TRANSACTION COMPLETED</div>
+            <div id="receipt-name" class="text-xl font-bold text-white mt-1">-</div>
+          </div>
+          <div class="space-y-2 text-sm">
+            <div class="flex justify-between">
+              <span class="text-slate-400">ยอดชำระ:</span>
+              <span class="font-bold text-emerald-400">80.00 THB</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-slate-400">อัลกอริทึม:</span>
+              <span class="text-slate-200">Adjacency List Traversal</span>
+            </div>
+            <div>
+              <span class="text-slate-400 block mb-1">Path วัตถุดิบในระบบ:</span>
+              <div id="receipt-path" class="p-2 bg-slate-900 rounded-lg text-xs font-mono text-emerald-400 border border-slate-700">-</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center pt-4">
+          <button onclick="goToPage('screen1')" class="px-6 py-2.5 bg-emerald-500 hover:bg-emerald-600 text-white rounded-xl font-semibold text-sm transition shadow-lg shadow-emerald-500/20">
+            <i class="fa-solid fa-rotate-right mr-1"></i> ทำรายการใหม่
+          </button>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- ไฟล์ JavaScript ของเรา -->
+  <script src="script.js"></script>
+</body>
+</html>
